@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="images/rnb_favicon.ico">
+
+    <title>DecompProtocol</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/small-business.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">
+                    <b>DecompProtocol</b>
+                </a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="index.html">About</a>
+                    </li>
+					<li>
+						<a href="protocol.html">Protocol</a>
+					</li>
+                    <li  class="active">
+                        <a href="resources.html">Resources</a>
+                    </li>
+               </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <!-- Page Heading/Breadcrumbs -->
+        <h1 class="mt-4 mb-3">Supplementary Resources for Reference-Free Deconvolution of complex DNA methylation data</h1>
+	
+		<a name="tableDes"></a>
+		<h2>List of Resources</h2>
+		<p>The table below describes the supplementary resources that are available for the reference-free deconvolution protocol.</p>
+        <div class="row">
+           <div class="col-md-12">               
+               <table class="table table-hover">
+                 <thead>
+                   <tr>
+                     <th>Name</th>
+                     <th>URL</th>
+                     <th>Description</th>
+                  </tr>
+                 </thead>
+                 <tbody>
+                   <tr>
+                     <td><i>RnBeads</i> report</td>
+                     <td><a href="
+http://www.computational-epigenomics.com/downloads/DecompProtocol/RnBeads_Report_TCGA_LUAD/index.html
+">
+http://www.computational-epigenomics.com/downloads/DecompProtocol/RnBeads_Report_TCGA_LUAD/index.html
+</a></td>
+                     <td>The <i>RnBeads</i> report generated from the lung adenocarcinoma dataset from TCGA (TCGA-LUAD). The protocol only requires the Import and Quality Control modules to be executed, but we provide a complete execution of the <i>RnBeads</i> pipeline including exploratory and differential analysis.</td>
+                   </tr>
+                   <tr>
+                     <td><i>RnBSet</i></td>
+                     <td><a href="
+missing
+">
+missing
+</a></td>
+                     <td>An processed <i>RnBSet</i> object comprising sample metadata, DNA methylation data, and CpG annotations. The dataset has not been subject to preprocessing and normalization.</td>
+                   </tr>
+					<tr>
+                     <td>CpGs passing quality filtering</td>
+                     <td><a href="
+http://www.computational-epigenomics.com/downloads/DecompProtocol/sites_passing_quality_filtering.csv
+">
+http://www.computational-epigenomics.com/downloads/DecompProtocol/sites_passing_quality_filtering.csv
+</a></td>
+                     <td>A list of CpG identifiers from the EPIC array, which pass the stringent quality criteria for this particular dataset. The list comes as a comma-separated values (CSV) file.</td>
+                   </tr>
+					<tr>
+                     <td>CpGs passing context filtering</td>
+                     <td><a href="
+http://www.computational-epigenomics.com/downloads/DecompProtocol/sites_passing_context_filtering.csv
+">
+http://www.computational-epigenomics.com/downloads/DecompProtocol/sites_passing_context_filtering.csv
+</a></td>
+                     <td>A list of CpG identifiers from the EPIC array, which pass the context filtering steps. In this step, sites annotated to single nucleotide polymorphisms, or to the sex chromosomes are removed.</td>
+                   </tr>
+					<tr>
+                     <td>CpGs passing complete filtering</td>
+                     <td><a href="
+http://www.computational-epigenomics.com/downloads/DecompProtocol/sites_passing_complete_filtering.csv
+">
+http://www.computational-epigenomics.com/downloads/DecompProtocol/sites_passing_complete_filtering.csv
+</a></td>
+                     <td>A list of CpG identifiers from the EPIC array, which pass all filtering steps employed in <i>DecompPipeline</i>. This is an extension of the list above, which also removes sites that have been reported to be <a href="https://doi.org/10.4161/epi.23470">cross-reactive</a>.</td>
+                   </tr>
+					<tr>
+                     <td><i>FactorViz</i> output</td>
+                     <td><a href="
+http://www.computational-epigenomics.com/downloads/DecompProtocol/FactorViz_outputs.tar.gz
+">
+http://www.computational-epigenomics.com/downloads/DecompProtocol/FactorViz_outputs.tar.gz
+</a></td>
+                     <td>This folder comprises the results of the deconvolution experiment of the TCGA LUAD dataset, which can be directly (after extraction) imported through <i>FactorViz</i>. The folder contains the <i>MeDeComSet</i>, genomic annotation of the CpGs, and sample metadata.</td>
+                   </tr>
+                 </tbody>
+               </table>
+           </div>
+        </div>
+        <!-- /.row -->
+
+
+    </div>
+    <!-- /.container -->
+
+    <!-- Footer -->
+    <hr>
+    <footer class="py-5 bg-inverse">
+        <div class="container">>           <p class="m-0 text-center text-white">Copyright &copy; <a href="mailto:mscherer@mpi-inf.mpg.de">Support</a> 2019 </p>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+
+</body>
+
+</html>

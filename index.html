@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="images/rnb_favicon.ico">
+
+    <title>DecompProtocol</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/small-business.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">
+                    <b>DecompProtocol</b>
+                </a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active">
+                        <a href="index.html">About</a>
+                    </li>
+					<li>
+						<a href="protocol.html">Protocol</a>
+					</li>
+                    <li>
+                        <a href="resources.html">Resources</a>
+                    </li>
+               </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <!-- Heading Row -->
+        <div class="row">
+            <div class="col-md-12">
+                <img class="img-responsive img-rounded" src="images/protocol_overview_low.png" alt="">
+            </div>
+            <!-- /.col-md-8 -->
+            <div class="col-md-12">
+                <h1>Reference-free deconvolution of complex DNA methylation data - a detailed protocol</h1>
+                <p>DNA methylation assays are typically performed on bulk tissue samples, which show substantial cellular heterogeneity. To dissect these heterogeneous DNA methylomes, several deconvolution approaches have been proposed (for a list of tools see <a href="https://github.com/lutsik/CellTypeInferenceMethods">this GitHub page</a>). Reference-free deconvolution tools do not rely on purified cell type profiles, and address heterogeneity in an unbiaed way. These methods rely high-quality data and pose challenges for the interpretation of deconvolution results. We propse a three-stage protocol to perform reference-free deconvolution of complex DNA methylation data:</p>
+            </div>
+            <!-- /.col-md-4 -->
+        </div>
+        <!-- /.row -->
+
+        <hr>
+
+         <!-- Content Row -->
+        <div class="row">
+            <div class="col-md-4">
+                <h2>Data preparation</h2>
+                <p>Input DNA methylation data either obtained from bisulfite sequencing technologies (BED files) or the Illumina Infinium BeadArrays (IDAT files) are processed using the <a href="https://rnbeads.org"><i>RnBeads</i></a> sofware package. The data set is checked for quality using <i>RnBeads'</i> reporting functionality, and then filtered according to user-specified options, which might include removing intensity/coverage outliers, or removing annotated single nucleotide polymorphisms. These steps are compiled in the comprehensive software suite <a href="https://github.com/CompEpigen/DecompPipeline"><i>DecompPipeline</i></a>. Confounding factors are addressed for using Independent Component Analysis (ICA).</p>
+            </div>
+            <!-- /.col-md-4 -->
+            <div class="col-md-4">
+                <h2>Deconvolution</h2>
+                <p>The second stage comprises reference-free deconvolution of the processed DNA methylation data matrix. The protocol supports <a href="http://public.genetik.uni-sb.de/medecom/">MeDeCom</a>, as well as <a href="https://cran.r-project.org/web/packages/RefFreeEWAS/index.html"><i>RefFreeCellMix</i></a> and <a href="https://github.com/BRL-BCM/EDec"><i>EDec</i></a>. All of these methods are based on non-negative matrix factoriation (NMF).</p>
+            </div>
+            <!-- /.col-md-4 -->
+            <div class="col-md-4">
+                <h2>Visualization</h2>
+                <p>To visualize deconvolution results and to get from the result from biological interpretation, we implemented the R/shiny graphical user interface <a href="https://github.com/CompEpigen/FactorViz"><i>FactorViz</i></a>. <i>FactorViz</i> provides function to link the obtained components (latent methylation components=LMCs) to phenotypic traits and to perform enrichment analysis on the sites that are particularly hypo-methylated in an LMC.</p>
+            </div>
+            <!-- /.col-md-4 -->
+        </div>
+        <!-- /.row -->
+        <!-- Content Row -->
+        <div class="row extra-top-padding">
+            <div class="col-md-12">
+                <h2>Developers</h2>
+                <p>The protocol has been mainly developed by <a href="https://www.dkfz.de/en/CanEpi/staff/Lutsik.html">Pavlo Lutsik</a> and <a href="https://bioinf.mpi-inf.mpg.de/homepage/index.php?&account=mscherer">Michael Scherer</a> in close collaboration with <a href="https://www.lih.lu/crp/publications/department/lih-luxembourg-institute-of-health-1408/author/petr-nazarov-166">Petr Nazarov</a>. Further contributions have been made by Reka Toth, Shaswat Sahay, Valentin Maurer, Tony Kaoma, Christoph Plass, Thomas Lengeauer, and J&ouml;rn Walter. The developers hold positions at the <a href="http://epigenetik.uni-saarland.de/de/home/">Department of Genetics/Epigenetics at Saarland University, at the <a href="http://epigenetik.uni-saarland.de/de/home/"> Divsion of Cancer Epigenomics at the German Cancer Research Center</a>, at the <a href="https://www.lih.lu/page/departments/qbu-quantitative-biology-unit-1368">Quantitative Biology Unit at Luxembourg Insitute of Healthy</a>n and at the <a href="https://www.mpi-inf.mpg.de/departments/research-group-computational-biology/">Research Group Computational Biology at the Max Planck Insitute for Informatics</a>. The project is supported by the <a href="http://www.deutsches-epigenom-programm.de/">German Epigenome Program</a> and <a href="https://www.denbi.de/">de.NBI-epi</a>.</p>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <hr>
+
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-2">
+                <img class="img-responsive" src="images/mpii_150x75px.png" alt="">
+            </div>
+            <div class="col-md-2">
+                <img class="img-responsive" src="images/uds_150x75px.png" alt="">
+            </div>
+            <div class="col-md-2">
+                <img class="img-responsive" src="images/DEEP-Logo.png" alt="">
+            </div>
+            <div class="col-md-2">
+                <img class="img-responsive" src="images/dkfz_150x75px.png" alt="">
+            </div>
+            <div class="col-md-2">
+                <img class="img-responsive" src="images/denbi_150x75px.png" alt="">
+            </div>
+ 			<div class="col-md-2">
+                <img class="img-responsive" src="images/LIH.GIF" alt="">
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+        <!-- /.row -->
+
+    </div>
+    <!-- /.container -->
+
+    <!-- Footer -->
+    <hr>
+    <footer class="py-5 bg-inverse">
+        <div class="container">>           <p class="m-0 text-center text-white">Copyright &copy; <a href="mailto:mscherer@mpi-inf.mpg.de">Support</a> 2019 </p>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
