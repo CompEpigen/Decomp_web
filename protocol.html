@@ -55,7 +55,7 @@
         </div>
         <!-- /.container -->
     </nav>
-
+<div class="container">
 <h1 id="introduction">Introduction</h1>
 <p>This protocol aims at guiding reasearcher how to employ deconvolution of methylomes obtained from complex tissues. It will start with data retrieval from a public resource, but is equally applicable to in-house generated data. We will furthermore focus on the Illumina BeadChip series as a data source, although the protocol is also compatible with bisulfite sequencing, or any technology yielding single base pair resolution. Deconvolution here refers to creating two matrices (proportion matrix A and methylation pattern matrix T) from a single matrix of input DNA methylation data (dimension CpGs x samples). Non-negative matrix factorization is employed for this task, and we will discuss some of the advantages and caveats of the methods.</p>
 <h1 id="installation-duration-up-to-2-h">Installation (duration up to 2 h)</h1>
@@ -430,6 +430,7 @@ data.prep &lt;- list(rnb.set.filtered=rnb.set)</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">suppressPackageStartupMessages</span>(<span class="kw">library</span>(FactorViz))
 <span class="kw">startFactorViz</span>(<span class="kw">file.path</span>(<span class="kw">getwd</span>(),<span class="st">&quot;TCGA_LUAD&quot;</span>,<span class="st">&quot;FactorViz_outputs&quot;</span>))</code></pre>
     <hr>
+</div>	
     <footer class="py-5 bg-inverse">
         <div class="container">           <p class="m-0 text-center text-white">Copyright &copy; <a href="mailto:mscherer@mpi-inf.mpg.de">Support</a> 2019 </p>
         </div>

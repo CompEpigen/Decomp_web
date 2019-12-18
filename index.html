@@ -61,9 +61,11 @@
 
         <!-- Heading Row -->
         <div class="row">
-            <div class="col-md-12">
+			<div class="col-md-2"></div>
+            <div class="col-md-8">
                 <img class="img-responsive img-rounded" src="images/protocol_overview_low.png" alt="">
             </div>
+			<div class="col-md-2"></div>
             <!-- /.col-md-8 -->
             <div class="col-md-12">
                 <h1>Reference-free deconvolution of complex DNA methylation data - a detailed protocol</h1>
@@ -77,12 +79,12 @@
 
          <!-- Content Row -->
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-5">
                 <h2>Data preparation</h2>
                 <p>Input DNA methylation data either obtained from bisulfite sequencing technologies (BED files) or the Illumina Infinium BeadArrays (IDAT files) are processed using the <a href="https://rnbeads.org"><i>RnBeads</i></a> sofware package. The data set is checked for quality using <i>RnBeads'</i> reporting functionality, and then filtered according to user-specified options, which removes intensity/coverage outliers, or annotated single nucleotide polymorphisms. These steps are compiled in the comprehensive software suite <a href="https://github.com/CompEpigen/DecompPipeline"><i>DecompPipeline</i></a>. Confounding factors are addressed for using Independent Component Analysis (ICA).</p>
             </div>
             <!-- /.col-md-4 -->
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <h2>Deconvolution</h2>
                 <p>The second stage comprises reference-free deconvolution of the processed DNA methylation data matrix. The protocol supports <a href="http://public.genetik.uni-sb.de/medecom/"><i>MeDeCom</i></a>, as well as <a href="https://cran.r-project.org/web/packages/RefFreeEWAS/index.html"><i>RefFreeCellMix</i></a> and <a href="https://github.com/BRL-BCM/EDec"><i>EDec</i></a>. All of these methods are based on non-negative matrix factoriation (NMF).</p>
             </div>
@@ -106,26 +108,27 @@
         <hr>
 
         <div class="row">
-            <div class="col-md-1"></div>
-            <div class="col-md-2">
+            <div class="col-md-3">
                 <img class="img-responsive" src="images/mpii_150x75px.png" alt="">
             </div>
-            <div class="col-md-2">
+            <div class="col-md-3">
                 <img class="img-responsive" src="images/uds_150x75px.png" alt="">
             </div>
-            <div class="col-md-2">
-                <img class="img-responsive" src="images/DEEP-Logo.png" alt="">
-            </div>
-            <div class="col-md-2">
+			<div class="col-md-3">
                 <img class="img-responsive" src="images/dkfz_150x75px.png" alt="">
             </div>
-            <div class="col-md-2">
+			<div class="col-md-3">
+                <img class="img-responsive" src="images/LIH.png" alt="">
+            </div>
+		</div>
+		<div class="row">
+            <div class="col-md-3">
+                <img class="img-responsive" src="images/DEEP-Logo.png" alt="">
+            </div>
+            <div class="col-md-3">
                 <img class="img-responsive" src="images/denbi_150x75px.png" alt="">
             </div>
- 			<div class="col-md-2">
-                <img class="img-responsive" src="images/LIH.GIF" alt="">
-            </div>
-            <div class="col-md-1"></div>
+            <div class="col-md-6"></div>
         </div>
         <!-- /.row -->
 
@@ -135,7 +138,7 @@
     <!-- Footer -->
     <hr>
     <footer class="py-5 bg-inverse">
-        <div class="container">>           <p class="m-0 text-center text-white">Copyright &copy; <a href="mailto:mscherer@mpi-inf.mpg.de">Support</a> 2019 </p>
+        <div class="container">           <p class="m-0 text-center text-white">Copyright &copy; <a href="mailto:mscherer@mpi-inf.mpg.de">Support</a> 2019 </p>
         </div>
     </footer>
 
