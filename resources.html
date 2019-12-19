@@ -78,15 +78,15 @@
                  <tbody>
                    <tr>
 					 <td>Manifest file for TCGA-LUAD</td>
-					 <td><a href="data/gdc_manifest.2019-01-23.txt">gdc_manifest.2019-01-23.txt</a></td>
+					 <td><a href="http://epigenomics.dkfz.de/DecompProtocol/data/gdc_manifest.2019-01-23.txt">http://epigenomics.dkfz.de/DecompProtocol/data/gdc_manifest.2019-01-23.txt</a></td>
 					 <td>The manifest file for the TCGA LUAD dataset. It can be used to download the IDAT files and associated metadata from TCGA using the <a href="https://gdc.cancer.gov/access-data/gdc-data-transfer-tool">GDC data transfer tool</a>.	
 				  </tr>
 				  <tr>
                      <td><i>RnBeads</i> report</td>
                      <td><a href="
-http://epigenomics.dkfz.de/downloads/DecompProtocol/RnBeads_Report_TCGA_LUAD/index.html
+http://epigenomics.dkfz.de/downloads/DecompProtocol/RnBeads_Report_TCGA_LUAD/
 ">
-http://epigenomics.dkfz.de/downloads/DecompProtocol/RnBeads_Report_TCGA_LUAD/index.html
+http://epigenomics.dkfz.de/downloads/DecompProtocol/RnBeads_Report_TCGA_LUAD/
 </a></td>
                      <td>The <i>RnBeads</i> report generated from the lung adenocarcinoma dataset from TCGA (TCGA-LUAD). The protocol only requires the Import and Quality Control modules to be executed, but we provide a complete execution of the <i>RnBeads</i> pipeline including exploratory analysis.</td>
                    </tr>
@@ -139,6 +139,55 @@ http://epigenomics.dkfz.de/downloads/DecompProtocol/FactorViz_outputs.tar.gz
         </div>
         <!-- /.row -->
 
+	<h2>Plotting scripts</h2>
+		<p>The table below describes script that have been used to generate the plots shown within the protocol.</p>
+        <div class="row">
+           <div class="col-md-12">               
+               <table class="table table-hover">
+                 <thead>
+                   <tr>
+                     <th>Name</th>
+                     <th>URL</th>
+                     <th>Description</th>
+                  </tr>
+                 </thead>
+                 <tbody>
+                   <tr>
+					 <td>Proportions heatmap</td>
+					 <td><a href="http://epigenomics.dkfz.de/DecompProtocol/data/proportion_heatmap.R">http://epigenomics.dkfz.de/DecompProtocol/data/proportion_heatmap.R</a></td>
+					 <td>An R script to generate the proportions heatmap of the TCGA-LUAD deconvolution experiment with 7 LMCs.	
+				  </tr>
+				  <tr>
+                     <td>Comparison with mutational data</td>
+                     <td><a href="http://epigenomics.dkfz.de/DecompProtocol/data/compare_with_mutational_data.R">http://epigenomics.dkfz.de/DecompProtocol/data/compare_with_mutational_data.R</a></td>
+                     <td>An R script to associate LMC proportions with various kinds of genetic alterations.</td>
+                   </tr>
+				  <tr>
+                     <td>Comparison to cancer stemness</td>
+                     <td><a href="http://epigenomics.dkfz.de/DecompProtocol/data/correlation_with_stemness.R">http://epigenomics.dkfz.de/DecompProtocol/data/correlation_with_stemness.R</a></td>
+                     <td>An R script to associate LMC proportions with cancer stemness indices.</td>
+                   </tr>
+				  <tr>
+                     <td>Differential LMC analyis</td>
+                     <td><a href="http://epigenomics.dkfz.de/DecompProtocol/data/compare_LMCs_scatterplot.R">http://epigenomics.dkfz.de/DecompProtocol/data/compare_LMCs_scatterplot.R</a></td>
+                     <td>An R script to compare LMCs to one another, for instance to create scatterplots describing multiple LMCs.</td>
+                   </tr>
+				  <tr>
+                     <td>Proportions and gene expression</td>
+                     <td><a href="http://epigenomics.dkfz.de/DecompProtocol/data/quantify_gene_expression.R">http://epigenomics.dkfz.de/DecompProtocol/data/quantify_gene_expression.R</a></td>
+                     <td>An R script to compare LMC proportions with gene expression values of cell type marker genes in lung tissue.</td>
+                   </tr>
+				  <tr>
+                     <td>Survival analysis</td>
+                     <td><a href="http://epigenomics.dkfz.de/DecompProtocol/data/survival_analyis.R">http://epigenomics.dkfz.de/DecompProtocol/data/survival_analyis.R</a></td>
+                     <td>An R script to perform survival analysis of patients with different LMC proportions.</td>
+                   </tr>
+
+                  </tbody>
+               </table>
+           </div>
+        </div>
+        <!-- /.row -->
 
     </div>
     <!-- /.container -->
