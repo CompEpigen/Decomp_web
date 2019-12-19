@@ -1,6 +1,6 @@
 library(MeDeCom)
-load("FactorViz_outputs/medecom_set.RData")
-load("FactorViz_outputs/ann_C.RData")
+load("TCGA_LUAD/FactorViz_outputs/medecom_set.RData")
+load("TCGA_LUAD/FactorViz_outputs/ann_C.RData")
 K <- 7
 lambda <- 0.001
 sel.lmc <- 4

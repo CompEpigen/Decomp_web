@@ -1,7 +1,7 @@
 library(pheatmap)
 library(MeDeCom)
 library(RColorBrewer)
-factorviz.output <- "FactorViz_outputs/"
+factorviz.output <- "TCGA_LUAD/FactorViz_outputs/"
 K <- 7
 lambda <- 0.001
 cg_subset <- 1
@@ -35,7 +35,7 @@ dev.off()
 library(pheatmap)
 library(MeDeCom)
 library(RColorBrewer)
-factorviz.output <- "FactorViz_outputs/"
+factorviz.output <- "TCGA_LUAD/FactorViz_outputs/"
 K <- 7
 lambda <- 0.001
 cg_subset <- 1
@@ -72,7 +72,7 @@ dev.off()
 library(corrplot)
 library(MeDeCom)
 library(RColorBrewer)
-factorviz.output <- "FactorViz_outputs/"
+factorviz.output <- "TCGA_LUAD/FactorViz_outputs/"
 K <- 7
 lambda <- 0.001
 cg_subset <- 1

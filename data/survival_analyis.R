@@ -1,8 +1,8 @@
 library(survival)
 library(survminer)
 library(MeDeCom)
-load("FactorViz_outputs/medecom_set.RData")
-load("FactorViz_outputs/ann_S.RData")
+load("TCGA_LUAD/FactorViz_outputs/medecom_set.RData")
+load("TCGA_LUAD/FactorViz_outputs/ann_S.RData")
 rem.samples <- grepl("11A",ann.S$tcga_barcodes)
 ann.S <- ann.S[!rem.samples,]
 props.LMC5 <- getProportions(medecom.set,K=9,lambda=0.001)[6,!rem.samples]
@@ -30,8 +30,8 @@ summary(mod)
 library(survival)
 library(survminer)
 library(MeDeCom)
-load("FactorViz_outputs/medecom_set.RData")
-load("FactorViz_outputs/ann_S.RData")
+load("TCGA_LUAD/FactorViz_outputs/medecom_set.RData")
+load("TCGA_LUAD/FactorViz_outputs/ann_S.RData")
 rem.samples <- grepl("11A",ann.S$Comment..TCGA.Barcode.)
 ann.S <- ann.S[!rem.samples,]
 props.LMC6 <- getProportions(medecom.set,K=7,lambda=0.001)[6,!rem.samples]
