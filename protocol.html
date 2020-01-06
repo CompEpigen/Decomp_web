@@ -17,7 +17,241 @@
 
     <!-- Custom CSS -->
     <link href="css/small-business.css" rel="stylesheet">
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
 
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type="text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+<script type="text/javascript" src="DeconvolutionProtocol_files/MathJax.js"></script><style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 5px 0px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -khtml-border-radius: 5px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 1px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: .7em}
+.MathJax_MenuRadioCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuLabel {padding: 1px 2em 3px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #DDDDDD; margin: 4px 3px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: #606872; color: white}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1px; bottom: 2px; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style>
 </head>
 
 <body>
@@ -95,8 +329,8 @@ devtools::install_github(c(<span class="hljs-string">"lutsik/MeDeCom"</span>,<sp
 <h1>Protocol</h1>
 <div id="data-retrival" class="section level2">
 <h2>Data Retrival</h2>
-<div id="obtaining-data-from-a-public-resource-duration-5h" class="section level3">
-<h3>Obtaining data from a public resource (duration ~5h)</h3>
+<div id="obtaining-data-from-a-public-resource-duration-5-h" class="section level3">
+<h3>Obtaining data from a public resource (duration ~5 h)</h3>
 <ol start="3" style="list-style-type: decimal">
 <li>Use the Genomic Data Commons (GDC) data download tool (<a href="https://gdc.cancer.gov/access-data/gdc-data-transfer-tool" class="uri">https://gdc.cancer.gov/access-data/gdc-data-transfer-tool</a>) to download the IDAT files with the TCGA-LUAD manifest file (<a href="http://epigenomics.dkfz.de/DecompProtocol/data/gdc_manifest.2019-01-23.txt" class="uri">http://epigenomics.dkfz.de/DecompProtocol/data/gdc_manifest.2019-01-23.txt</a>) and its associated metadata by running the download tool in a terminal session initiated in the working directory:</li>
 </ol>
@@ -136,8 +370,8 @@ lapply(idat.files,<span class="hljs-keyword">function</span>(x){
 </div>
 <div id="data-processing" class="section level2">
 <h2>Data Processing</h2>
-<div id="data-import-2h" class="section level3">
-<h3>Data import (~2h)</h3>
+<div id="data-import-2-h" class="section level3">
+<h3>Data import (~2 h)</h3>
 <ol start="6" style="list-style-type: decimal">
 <li><em>RnBeads</em> converts the files into a data object and performs basic quality control. Analysis options have to be specified for <em>RnBeads</em>,
  either through an XML file, or through the command line. Deactivate the
@@ -184,8 +418,8 @@ such that it can be used for further analysis.</li>
 </ol>
 <p><strong>PAUSE POINT</strong> For reference, we provide a complete RnBeads report on the supplementary website <a href="http://epigenomics.dkfz.de/downloads/DecompProtocol/RnBeads_Report_TCGA_LUAD/" class="uri">http://epigenomics.dkfz.de/downloads/DecompProtocol/RnBeads_Report_TCGA_LUAD/</a>.</p>
 </div>
-<div id="preprocessing-and-filtering-22h" class="section level3">
-<h3>Preprocessing and Filtering (22h)</h3>
+<div id="preprocessing-and-filtering-22-h" class="section level3">
+<h3>Preprocessing and Filtering (22 h)</h3>
 <ol start="9" style="list-style-type: decimal">
 <li>For further data preparation and analysis steps use the <em>DecompPipeline</em>
  package. Processing options are provided through individual function 
@@ -232,15 +466,15 @@ data.prep &lt;- prepare_data(RNB_SET = rnb.set,
                           remove.ICA=<span class="hljs-literal">T</span>,
                           conf.fact.ICA=c(<span class="hljs-string">"age_at_diagnosis"</span>,<span class="hljs-string">"race"</span>,<span class="hljs-string">"gender"</span>,<span class="hljs-string">"ethnicity"</span>),
                           ica.setting=c(<span class="hljs-string">"alpha.fact"</span>=<span class="hljs-number">1e-5</span>,<span class="hljs-string">"save.report"</span>=<span class="hljs-literal">T</span>,<span class="hljs-string">"nmin"</span>=<span class="hljs-number">30</span>,<span class="hljs-string">"nmax"</span>=<span class="hljs-number">50</span>,<span class="hljs-string">"ncores"</span>=<span class="hljs-number">10</span>))</code></pre>
-<p><strong>BREAKPOINT</strong> We provide a list of CpGs that are selected for the downstream analysis at <a href="http://epigenomics.dkfz.de/downloads/DecompProtocol/sites_passing_complete_filtering.csv" class="uri">http://epigenomics.dkfz.de/downloads/DecompProtocol/sites_passing_complete_filtering.csv</a>. You can directly select those sites from you RnBSet object.</p>
-<pre class="breakpoint_2"><code class="hljs">rem.sites &lt;- rep(TRUE,nrow(meth(rnb.set)))
-sel.sites &lt;- read.csv("http://epigenomics.dkfz.de/downloads/DecompProtocol/sites_passing_complete_filtering.csv")
-rem.sites[row.names(annotation(rnb.set))%in%as.character(sel.sites[,1])] &lt;- FALSE
+<p><strong>PAUSE POINT</strong> We provide a list of CpGs that are selected for the downstream analysis at <a href="http://epigenomics.dkfz.de/downloads/DecompProtocol/sites_passing_complete_filtering.csv" class="uri">http://epigenomics.dkfz.de/downloads/DecompProtocol/sites_passing_complete_filtering.csv</a>. You can directly select those sites from you RnBSet object.</p>
+<pre class="r"><code class="hljs">rem.sites &lt;- rep(<span class="hljs-literal">TRUE</span>,nrow(meth(rnb.set)))
+sel.sites &lt;- read.csv(<span class="hljs-string">"http://epigenomics.dkfz.de/downloads/DecompProtocol/sites_passing_complete_filtering.csv"</span>)
+rem.sites[row.names(annotation(rnb.set))%<span class="hljs-keyword">in</span>%as.character(sel.sites[,<span class="hljs-number">1</span>])] &lt;- <span class="hljs-literal">FALSE</span>
 rnb.set &lt;- remove.sites(rnb.set,rem.sites)
 data.prep &lt;- list(rnb.set.filtered=rnb.set)</code></pre>
 </div>
-<div id="selecting-informative-features-cpgs" class="section level3">
-<h3>Selecting informative features (CpGs)</h3>
+<div id="selection-of-cpg-subsets-1-min" class="section level3">
+<h3>Selection of CpG subsets (1 min)</h3>
 <ol start="11" style="list-style-type: decimal">
 <li>Select a subset of sites to be used for deconvolution. DecompPipeline provides different options (see documentation of <em>prepare_CG_subsets</em>) through the <em>prepare_CG_subsets</em> function. Select the 5,000 most highly variable CpGs across the samples.</li>
 </ol>
@@ -252,8 +486,8 @@ names(cg_subset)</code></pre>
 </div>
 <div id="methylome-deconvolution" class="section level2">
 <h2>Methylome Deconvolution</h2>
-<div id="performing-deconvolution" class="section level3">
-<h3>Performing Deconvolution</h3>
+<div id="performing-deconvolution-54-h" class="section level3">
+<h3>Performing Deconvolution (54 h)</h3>
 <ol start="12" style="list-style-type: decimal">
 <li>Perform the deconvolution experiment. Use MeDeCom with a grid of 
 values for the number of components (K) ranging from 2 to 15, which 
@@ -277,8 +511,8 @@ final result for exploration at <a href="http://epigenomics.dkfz.de/downloads/De
 untar(paste0(tempdir(),<span class="hljs-string">"/FactorViz_outputs.tar.gz"</span>))</code></pre>
 </div>
 </div>
-<div id="downstream-analysis" class="section level2">
-<h2>Downstream analysis</h2>
+<div id="downstream-analysis-3-h" class="section level2">
+<h2>Downstream analysis (3 h)</h2>
 <ol start="13" style="list-style-type: decimal">
 <li>Start the <em>FactorViz</em> application to visualize and interactively explore the deconvolution results.</li>
 </ol>
@@ -328,7 +562,8 @@ LMC.proportions &lt;- getProportions(medecom.set, K=<span class="hljs-number">7<
 load(<span class="hljs-string">"FactorViz_outputs/ann_C.RData"</span>)
 head(ann.C)</code></pre>
 </div>
-</div>    <footer class="py-5 bg-inverse">
+</div>
+<footer class="py-5 bg-inverse">
         <div class="container">           <p class="m-0 text-center text-white">Copyright &copy; <a href="mailto:mscherer@mpi-inf.mpg.de">Support</a> 2019 </p>
         </div>
     </footer>

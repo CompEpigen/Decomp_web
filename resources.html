@@ -78,7 +78,7 @@
 				   <tr>
 						<td>GDC data download tool</td>
 						<td><a href="https://gdc.cancer.gov/access-data/gdc-data-transfer-tool">https://gdc.cancer.gov/access-data/gdc-data-transfer-tool</a></td>
-						<td>On the website, select the version most appropriate to you computational infrastructure and follow the instructions to install the tool.</td>
+						<td>On the website, select the version most appropriate for your computational infrastructure and follow the instructions to install the tool.</td>
 				   </tr>
                    <tr>
 					 <td>Manifest file for TCGA-LUAD</td>
@@ -113,6 +113,11 @@ content.springer.com/esm/art%3A10.1038%2Fncomms3612/MediaObjects/41467_2013_BFnc
 </a></td>
                      <td>Download the Excel file and browse to the sheet "RNASeqV2". From this sheet, select the "lung adenocarcinoma" cases from the column "platform" and store the resulting sheet a tabular file named "LUAD_ESTIMATE_RNAseqV2.tab" in the <i>annotation</i> subdirectory. The file is needed for the <a href="https://github.com/CompEpigen/Decomp_web/blob/master/data/trait_association.R">trait association script</a>.</td>
                    </tr>
+				  <tr>
+					<td>Stemness indices</td>
+					<td><a href="https://ars.els-cdn.com/content/image/1-s2.0-S0092867418303581-mmc1.xlsx">https://ars.els-cdn.com/content/image/1-s2.0-S0092867418303581-mmc1.xlsx</a></td>
+					<td>Download the excel file and browse to the sheet "StemnessScores_DNAmeth". Store this sheet as a new file "stemness_index.csv" in the directory "annotation". This file will be required to correlate LMC proportions with cancer stemness indices using <a href="https://github.com/CompEpigen/Decomp_web/blob/master/data/correlation_with_stemness.R">this</a> script.</td>
+				  </tr>
                  </tbody>
                </table>
            </div>
@@ -229,7 +234,7 @@ http://epigenomics.dkfz.de/downloads/DecompProtocol/FactorViz_outputs.tar.gz
                      <td>An R script to associate LMC proportions with cancer stemness indices.</td>
                    </tr>
 				  <tr>
-                     <td>Differential LMC analyis</td>
+                     <td>Differential LMC analysis</td>
                      <td><a href="https://github.com/CompEpigen/Decomp_web/blob/master/data/compare_LMCs_scatterplot.R">https://github.com/CompEpigen/Decomp_web/blob/master/data/compare_LMCs_scatterplot.R</a></td>
                      <td>An R script to compare LMCs to one another, for instance to create scatterplots describing multiple LMCs.</td>
                    </tr>

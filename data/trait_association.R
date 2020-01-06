@@ -17,17 +17,6 @@ for(i in 1:ncol(new.fr)){
 new.fr <- as.data.frame(new.fr)
 colnames(new.fr) <- colnames(muts)
 ann.S <- data.frame(ann.S,new.fr)
-library(data.table)
-muts <- fread("annotation/mutation_data.tsv")
-matchi <- match(ann.S$submitter_id,muts$'Patient ID')
-muts <- as.data.frame(muts)
-new.fr <- matrix(nrow = nrow(ann.S),ncol=ncol(muts))
-for(i in 1:ncol(new.fr)){
-  new.fr[!is.na(matchi),i] <- as.character(muts[matchi[!is.na(matchi)],i])
-}
-new.fr <- as.data.frame(new.fr)
-colnames(new.fr) <- colnames(muts)
-ann.S <- data.frame(ann.S,new.fr)
 
 traits <- c("Fraction.Genome.Altered","Mutation.Count")
 for(x in traits){
