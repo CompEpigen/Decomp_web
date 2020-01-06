@@ -62,6 +62,62 @@
         <!-- Page Heading/Breadcrumbs -->
         <h1 class="mt-4 mb-3">Supplementary Resources for Reference-Free Deconvolution of complex DNA methylation data</h1>
 	
+		<h2>Input data</h2>
+		<p>The table below describes the input data used for the reference-free deconvolution protocol and how it can be obtained.</p>
+        <div class="row">
+           <div class="col-md-12">               
+               <table class="table table-hover">
+                 <thead>
+                   <tr>
+                     <th>Name</th>
+                     <th>URL</th>
+                     <th>Description</th>
+                  </tr>
+                 </thead>
+                 <tbody>
+				   <tr>
+						<td>GDC data download tool</td>
+						<td><a href="https://gdc.cancer.gov/access-data/gdc-data-transfer-tool">https://gdc.cancer.gov/access-data/gdc-data-transfer-tool</a></td>
+						<td>On the website, select the version most appropriate to you computational infrastructure and follow the instructions to install the tool.</td>
+				   </tr>
+                   <tr>
+					 <td>Manifest file for TCGA-LUAD</td>
+					 <td><a href="https://portal.gdc.cancer.gov/legacy-archive/search/f">https://portal.gdc.cancer.gov/legacy-archive/search/f</a></td>
+					 <td>Select "TCGA" in the category "Cancer program" on the left, and the "Disease type" as "lung adenocarcinoma". Then, go to files on the top of the left hand side and select "Methylation array" under "Experimental strategy". Last, select "Raw intensities" under "Data type" and "Illumina Human Methylation 450" under "Platform" and click on "Download Manifest"</td>.	
+				  </tr>
+				  <tr>
+                     <td>Clinical metadata</td>
+ 					 <td><a href="https://portal.gdc.cancer.gov/projects/TCGA-LUAD">
+https://portal.gdc.cancer.gov/projects/TCGA-LUAD
+					</a></td>
+                     <td>Click on the "Clinical" button and select "TSV" as the download option. Then, unpack the downloaded <i>.tar.gz</i> file into a new subdirectory
+<i>annotation</i> within your working directory.</td>
+                   </tr>
+                   <tr>
+                     <td>Mutational data</td>
+                     <td><a href="https://www.cbioportal.org/study/clinicalData?id=luad_tcga_pan_can_atlas_2018">
+https://www.cbioportal.org/study/clinicalData?id=luad_tcga_pan_can_atlas_2018
+</a></td>
+                     <td>Click on the download icon, which shows "Download clinical data for the selected cases" by dragging the mouse cursor over it and storing the resulting file <i>luad_tcga_pan_can_atlas_2018_clinical_data.tsv</i>. The file will be required as input in <a href="https://github.com/CompEpigen/Decomp_web/blob/master/data/compare_with_mutational_data.R">this</a> plotting script.</td>
+                   </tr>
+					<tr>
+                     <td>Tumor purity scores</td>
+                     <td><a href="
+https://static-
+content.springer.com/esm/art%3A10.1038%2Fncomms3612/MediaObjects/41467_2013_BFncomms3
+612_MOESM489_ESM.xlsx
+">
+https://static-
+content.springer.com/esm/art%3A10.1038%2Fncomms3612/MediaObjects/41467_2013_BFncomms3
+612_MOESM489_ESM.xlsx
+</a></td>
+                     <td>Download the Excel file and browse to the sheet "RNASeqV2". From this sheet, select the "lung adenocarcinoma" cases from the column "platform" and store the resulting sheet a tabular file named "LUAD_ESTIMATE_RNAseqV2.tab" in the <i>annotation</i> subdirectory. The file is needed for the <a href="https://github.com/CompEpigen/Decomp_web/blob/master/data/trait_association.R">trait association script</a>.</td>
+                   </tr>
+                 </tbody>
+               </table>
+           </div>
+        </div>
+		
 		<a name="tableDes"></a>
 		<h2>List of Resources</h2>
 		<p>The table below describes the supplementary resources that are available for the reference-free deconvolution protocol.</p>
