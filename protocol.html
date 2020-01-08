@@ -527,24 +527,59 @@ earlier. We recommend selecting K values as a trade-off between too high
 and insufficient degrees of freedom (lower K values). This typically 
 corresponds to the saddle point where cross-validation error starts to 
 level out.</p></li>
+<div class="row">
+<div class="col-md-2"></div>
+<div class="col-md-8">
+    <img class="img-responsive img-rounded" src="images/select_K.png" alt="">
+</div>
+<div class="col-md-2"></div>
+</div>
 <li><p>For a fixed K, select a value for the regularization parameter 
 (λ) by proceeding to panel “Lambda selection”. An optimal value for λ 
 will often correspond to a local minimum of the cross-validation error. 
 On the other hand, noticeable changes in other statistics, such as 
 objective value or root mean squared error (RMSE), can point at a 
 different λ value.</p></li>
+<div class="row">
+<div class="col-md-2"></div>
+<div class="col-md-8">
+    <img class="img-responsive img-rounded" src="images/select_lambda.png" alt="">
+</div>
+<div class="col-md-2"></div>
+</div>
 <li><p>In the “Proportions” panel of FactorViz, visualize LMC 
 proportions using heatmaps. Proportion heatmaps can be visually 
 annotated with available qualitative and quantitative traits (see 
 dropdown “Color samples by”). Further visualization options include 
 stacked barplot and lineplots.</p></li>
+<div class="row">
+<div class="col-md-2"></div>
+<div class="col-md-8">
+    <img class="img-responsive img-rounded" src="images/proportion_clustering.png" alt="">
+</div>
+<div class="col-md-2"></div>
+</div>
 <li><p>In the “Meta-analysis” panel, associate LMC proportions with 
 quantitative and qualitative traits using correlation- and t-tests. 
 Further sample annotations, such as mutational load (<a href="https://www.cbioportal.org/study/clinicalData?id=luad_tcga_pan_can_atlas_2018" class="uri">https://www.cbioportal.org/study/clinicalData?id=luad_tcga_pan_can_atlas_2018</a>) and tumor purity scores can be obtained from public repositories and related publications (<a href="https://static-content.springer.com/esm/art%3A10.1038%2Fncomms3612/MediaObjects/41467_2013_BFncomms3612_MOESM489_ESM.xlsx">https://static-content.springer.com/esm/art%3A10.1038%2Fncomms3612/MediaObjects/41467_2013_BFncomms3612_MOESM489_ESM.xlsx</a>). In addition, scripts to conduct such analysis are available on the Supplementary Website (<a href="http://epigenomics.dkfz.de/DecompProtocol/" class="uri">http://epigenomics.dkfz.de/DecompProtocol/</a>).</p></li>
+<div class="row">
+<div class="col-md-2"></div>
+<div class="col-md-8">
+    <img class="img-responsive img-rounded" src="images/trait_association.png" alt="">
+</div>
+<div class="col-md-2"></div>
+</div>
 <li><p>Explore the LMCs in the panel “LMCs”. Several visualization 
 options are available such as Multidimensional Scaling and histograms. 
 Reference profiles can be used for joint visualization in case those are
  available.</p></li>
+<div class="row">
+<div class="col-md-2"></div>
+<div class="col-md-8">
+    <img class="img-responsive img-rounded" src="images/visualize_LMCs.png" alt="">
+</div>
+<div class="col-md-2"></div>
+</div>
 <li><p>Determine DNA methylation sites that are specifically hypo- and 
 hypermethylated in an LMC by comparing the methylation values in the LMC
  matrix for each LMC to the median of the remaining LMCs in the 
@@ -556,6 +591,13 @@ Enrichments” in dropdown ”Output type”). The differential sites can be
 exported for further analysis, and the resulting plots can be stored by 
 clicking on the “PDF” button.</p></li>
 </ol>
+<div class="row">
+<div class="col-md-2"></div>
+<div class="col-md-8">
+    <img class="img-responsive img-rounded" src="images/lola_enrichment.png" alt="">
+</div>
+<div class="col-md-2"></div>
+</div>
 <p><strong>PAUSE POINT</strong> Additional built-in options for visualization of LMCs and proportions are available via the <em>MeDeCom</em> functions <code>plotLMCs</code> and <code>plotProportions</code> in R. Finally, the LMC and proportions matrix can be extracted from the MeDeComSet object, and the genomic annotation of CpGs (<code>ann.C</code>) can be obtained from the <em>FactorViz</em> output for a custom downstream analysis:</p>
 <pre class="r"><code class="hljs">LMCs &lt;- getLMCs(medecom.set, K=<span class="hljs-number">7</span>, lambda=<span class="hljs-number">0.001</span>)
 LMC.proportions &lt;- getProportions(medecom.set, K=<span class="hljs-number">7</span>, lambda=<span class="hljs-number">0.001</span>)
