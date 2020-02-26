@@ -1,4 +1,5 @@
 library(TCGAbiolinks)
+library(edgeR)
 query <- GDCquery(project = "TCGA-LUAD",
                            data.category = "Gene expression",
                            data.type = "Gene expression quantification",

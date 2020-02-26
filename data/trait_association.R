@@ -44,7 +44,7 @@ ann.S$Immune_score <- as.numeric(ann.S$Immune_score)
 ann.S$Stromal_score <- as.numeric(ann.S$Stromal_score)
 ann.S$ESTIMATE_score <- as.numeric(ann.S$ESTIMATE_score)
 sel.traits <- c("Mutation.Count","Fraction.Genome.Altered","LUMP_estimate","Stromal_score")
-props <- getProportions(medecom.set,K=7,lambda=0.001)
+props <- getProportions(medecom.set,K=7,lambda=lambda)
 cors <- apply(props,1,function(x){
   sapply(sel.traits,function(trait){
     trait <- ann.S[,trait]
