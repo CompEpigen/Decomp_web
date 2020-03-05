@@ -20,7 +20,7 @@ ann.S <- data.frame(ann.S,new.fr)
 
 run.trait.association(medecom.set,ann.S)
 
-trait <- "X16q.Status"#"X1p.Status" "X16p.Status" "X16q.Status"
+trait <- "X12p.Status"#"X1p.Status" "X16p.Status" "X16q.Status"
 trait <- ann.S[,trait]
 props <- getProportions(medecom.set,K=K,lambda=lambda,cg_subset=cg_subs)
 to.plot <- data.frame(t(props),Trait=trait)

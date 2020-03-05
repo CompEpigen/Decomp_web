@@ -2,7 +2,7 @@ library(MeDeCom)
 load("TCGA_LUAD/FactorViz_outputs/medecom_set.RData")
 load("TCGA_LUAD/FactorViz_outputs/ann_S.RData")
 K <- 7
-lambda <- 0.001
+lambda <- 0
 cg_subs <- 1
 library(data.table)
 muts <- fread("annotation/luad_tcga_pan_can_atlas_2018_clinical_data.tsv")
@@ -22,7 +22,7 @@ traits <- c("Fraction.Genome.Altered","Mutation.Count")
 for(x in traits){
   ann.S[,x] <- as.numeric(as.character(ann.S[,x]))
 }
-traits <- c("X10p.Status","X10q.Status","X11p.Status","X11q.Status","X12p.Status","X12q.Status","X13..13q..Status")
+sel.traits <- c("X1p.Status","X5q.Status","X6q.Status","X12p.Status","X16p.Status","X16q.Status")
 for(x in traits){
   foo <- ann.S[,x]
   foo[foo=="Not Called"|foo==""] <- NA
@@ -49,8 +49,8 @@ cors <- apply(props,1,function(x){
   sapply(sel.traits,function(trait){
     trait <- ann.S[,trait]
     na.trait <- is.na(trait)
-    cor(x[!na.trait],as.numeric(trait[!na.trait]))
-    #cor.test(x[!na.trait],as.numeric(trait[!na.trait]))$p.value
+    #cor(x[!na.trait],as.numeric(trait[!na.trait]))
+    cor.test(x[!na.trait],as.numeric(trait[!na.trait]))$p.value
   })
 })
 corrplot(t(cors),"ellipse",addCoef.col = "black")
@@ -61,11 +61,15 @@ ann.S$ethnicity <- eth
 dis <- rep("cancer",nrow(ann.S))
 dis[grepl("11A",ann.S$Comment..TCGA.Barcode.)] <- "healthy"
 ann.S$class <- dis
-sel.traits <- c("gender","ethnicity","class","X12p.Status","X5q.Status")
+sel.traits <- c("X1p.Status","X5q.Status","X6q.Status","X12p.Status","X16p.Status","X16q.Status")
 props <- getProportions(medecom.set,K=7,lambda=0.001)
 ann.S$class <- factor(ann.S$class,levels=c("healthy","cancer"))
+ann.S$X1p.Status <- factor(ann.S$X1p.Status,levels=c("Gained","Lost"))
 ann.S$X5q.Status <- factor(ann.S$X5q.Status,levels=c("Gained","Lost"))
+ann.S$X6q.Status <- factor(ann.S$X6q.Status,levels=c("Gained","Lost"))
 ann.S$X12p.Status <- factor(ann.S$X12p.Status,levels=c("Gained","Lost"))
+ann.S$X16p.Status <- factor(ann.S$X16p.Status,levels=c("Gained","Lost"))
+ann.S$X16q.Status <- factor(ann.S$X16q.Status,levels=c("Gained","Lost"))
 
 madiff <- apply(props,1,function(x){
   sapply(sel.traits,function(trait){
@@ -73,9 +77,10 @@ madiff <- apply(props,1,function(x){
     na.trait <- is.na(trait)
     trait <- trait[!na.trait]
     x <- x[!na.trait]
-    md <- mean(x[as.character(trait)==levels(trait)[1]],na.rm=T)-mean(x[as.character(trait)==levels(trait)[2]],na.rm=T)
-	names(md) <- paste0(levels(trait)[1],"vs",levels(trait)[2])
-	md
+#    md <- mean(x[as.character(trait)==levels(trait)[1]],na.rm=T)-mean(x[as.character(trait)==levels(trait)[2]],na.rm=T)
+#	names(md) <- paste0(levels(trait)[1],"vs",levels(trait)[2])
+#	md
+   t.test(x[as.character(trait)==levels(trait)[1]],na.rm=T,x[as.character(trait)==levels(trait)[2]])$p.value
   })
 })
 to.plot <- data.frame(t(madiff),LMC=colnames(madiff))

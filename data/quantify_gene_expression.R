@@ -1,5 +1,6 @@
 library(TCGAbiolinks)
 library(edgeR)
+library(MeDeCom)
 query <- GDCquery(project = "TCGA-LUAD",
                            data.category = "Gene expression",
                            data.type = "Gene expression quantification",
@@ -53,7 +54,7 @@ cors.p.vals <- sapply(marker.genes,function(marker){
 library(corrplot)
 corrplot(cors.all,"ellipse")
 
-plot.path <- "analysis/gene_expression/"
+plot.path <- "analysis/gene_expression2/"
 cors.all <- sapply(marker.genes,function(marker){
 	if(!marker %in% row.names(cpm.obj)){
 		cors.gene <- NA
@@ -65,7 +66,7 @@ cors.all <- sapply(marker.genes,function(marker){
 			to.plot <- data.frame(CPM=sel.exp,Proportion=prop)
 			plot <- ggplot(to.plot,aes(x=Proportion,y=CPM))+geom_point(size=.1)+geom_smooth(method="lm",size=.5)+
 				theme_bw()+theme(panel.grid=element_blank(),text=element_text(color="black",size=20),
-								axis.ticks=element_line(size=0.5,color="black"),axis.ticks.length=unit(2,"mm"),axis.title=element_blank(),axis.text=element_blank())
+								axis.ticks=element_line(size=0.5,color="black"),axis.ticks.length=unit(2,"mm"),axis.title=element_blank())
 			ggsave(file.path(plot.path,paste0(lmc,"_",marker,"_new.pdf")),plot,width=35,height=35,unit="mm")
 		}
 	}

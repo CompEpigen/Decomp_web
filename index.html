@@ -40,12 +40,19 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li class="active">
+                    <li>
                         <a href="index.html">About</a>
                     </li>
-					<li>
-						<a href="protocol.html">Protocol</a>
-					</li>
+			<li class="dropdown-active">
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#">Protocol
+				<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li><a href="protocol.html">MeDeCom Protocol</a></li>
+					<li><a href="protocol_RefFreeEWAS.html">RefFreeEWAS Protocol</a></li>
+					<li><a href="protocol_RRBS.html">RRBS Protocol</a></li>
+				</ul>
+			</li>
+			</li>
                     <li>
                         <a href="resources.html">Resources</a>
                     </li>
