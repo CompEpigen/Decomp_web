@@ -281,9 +281,9 @@ summary {
 				<a class="dropdown-toggle" data-toggle="dropdown" href="#">Protocol
 				<span class="caret"></span></a>
 				<ul class="dropdown-menu">
-					<li><a href="protocol.html">MeDeCom Protocol</a></li>
-					<li><a href="protocol_RefFreeEWAS.html">RefFreeEWAS Protocol</a></li>
-					<li><a href="protocol_RRBS.html">RRBS Protocol</a></li>
+					<li><a href="protocol.html">Protocol for 450k data (MeDeCom)</a></li>
+					<li><a href="protocol_RefFreeEWAS.html">Protocol for 450k data (RefFreeEWAS)</a></li>
+					<li><a href="protocol_RRBS.html">Protocol for RRBS data (MeDeCom)</a></li>
 				</ul>
 			</li>
 			</li>
@@ -299,11 +299,11 @@ summary {
 <div class="container">
 <h1>Reference-free deconvolution protocol of Ewing RRBS cohort</h1>
 <div id="installation-and-data-retrieval" class="section level1">
-<h2>Installation and Data Retrieval</h2>
+<h1>Installation and Data Retrieval</h1>
 <p>The data were generated in a <a href="https://www.nature.com/articles/nm.4273">recent study</a> which are also available from GEO, accession number <a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE88826">GSE88826</a>.</p>
 </div>
 <div id="data-import" class="section level1">
-<h2>Data Import</h2>
+<h1>Data Import</h1>
 <p><a href="https://rnbeads.org/"><em>RnBeads</em></a> also support 
 bisulfite sequencing data, provided that the data has been processed to 
 generate single-CpG methylation calls in BED or similar format. However,
@@ -344,7 +344,7 @@ rem.samples &lt;- rem.samples | samples(rnb.set) %<span class="hljs-keyword">in<
 rnb.set &lt;- remove.samples(rnb.set,rem.samples)</code></pre>
 </div>
 <div id="preprocessing-and-filtering" class="section level1">
-<h2>Preprocessing and Filtering</h2>
+<h1>Preprocessing and Filtering</h1>
 <p><a href="https://github.com/CompEpigen/DecompPipeline"><em>DecompPipeline</em></a>
  also support preprocessing of bisulfite sequencing data. Here, we 
 remove all sites that have a read coverage lower than 5 in any of the 
@@ -363,15 +363,15 @@ data.prep &lt;- prepare_data_BS(RNB_SET = rnb.set,
                           execute.lump=<span class="hljs-literal">T</span>)</code></pre>
 </div>
 <div id="feature-selection" class="section level1">
-<h2>Feature Selection</h2>
+<h1>Feature Selection</h1>
 <p>We select the 5,000 most variably methylated CpGs across the samples for downstream analysis.</p>
 <pre class="r"><code class="hljs">cg_subset &lt;- prepare_CG_subsets(rnb.set=data.prep$rnb.set.filtered,
                                 MARKER_SELECTION = <span class="hljs-string">"var"</span>,
                                 N_MARKERS = <span class="hljs-number">5000</span>)</code></pre>
 </div>
 <div id="deconvolution" class="section level1">
-<h2>Deconvolution</h2>
-<p>Deconvolutiom is applied analogously to the <a href="protocol.html">general protocol</a>. <a href="https://cran.r-project.org/web/packages/RefFreeEWAS/index.html"><em>RefFreeCellMix</em></a> and <a href="https://github.com/BRL-BCM/EDec"><em>EDec</em></a> can be used as alternative deconvolution methods.</p>
+<h1>Deconvolution</h1>
+<p>Deconvolution is applied analogously to the <a href="protocol.html">general protocol</a>. <a href="https://cran.r-project.org/web/packages/RefFreeEWAS/index.html"><em>RefFreeCellMix</em></a> and <a href="https://github.com/BRL-BCM/EDec"><em>EDec</em></a> can be used as alternative deconvolution methods.</p>
 <pre class="r"><code class="hljs">md.res &lt;- start_medecom_analysis(
   rnb.set=data.prep$rnb.set.filtered,
   cg_groups = cg_subset,
@@ -383,7 +383,7 @@ data.prep &lt;- prepare_data_BS(RNB_SET = rnb.set,
 )</code></pre>
 </div>
 <div id="interpretation" class="section level1">
-<h2>Interpretation</h2>
+<h1>Interpretation</h1>
 <p>The returned <em>MeDeComSet</em> and associated deconvolution results can directly be imported into <a href="https://github.com/CompEpigen/FactorViz"><em>FactorViz</em></a> for visualization.</p>
 <pre class="r"><code class="hljs">suppressPackageStartupMessages(<span class="hljs-keyword">library</span>(FactorViz))
 startFactorViz(file.path(getwd(),<span class="hljs-string">"TCGA_Ewing_pipeline"</span>,<span class="hljs-string">"FactorViz_outputs"</span>))</code></pre>

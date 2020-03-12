@@ -281,9 +281,9 @@ summary {
 				<a class="dropdown-toggle" data-toggle="dropdown" href="#">Protocol
 				<span class="caret"></span></a>
 				<ul class="dropdown-menu">
-					<li><a href="protocol.html">MeDeCom Protocol</a></li>
-					<li><a href="protocol_RefFreeEWAS.html">RefFreeEWAS Protocol</a></li>
-					<li><a href="protocol_RRBS.html">RRBS Protocol</a></li>
+					<li><a href="protocol.html">Protocol for 450k data (MeDeCom)</a></li>
+					<li><a href="protocol_RefFreeEWAS.html">Protocol for 450k data (RefFreeEWAS)</a></li>
+					<li><a href="protocol_RRBS.html">Protocol for RRBS data (MeDeCom)</a></li>
 				</ul>
 			</li>
 			</li>
@@ -299,11 +299,11 @@ summary {
 <div class="container">
 <h1>Reference-free deconvolution protocol using RefFreeCellMix</h1>
 <div id="installation-and-data-retrieval" class="section level1">
-<h2>Installation and Data Retrieval</h2>
+<h1>Installation and Data Retrieval</h1>
 <p>Pleas follow the instructions provided in the <a href="protocol.html">protocol</a> using MeDeCom.</p>
 </div>
 <div id="data-import" class="section level1">
-<h2>Data import</h2>
+<h1>Data import</h1>
 <p>Analogously to the general protocol, we use <a href="https://rnbeads.org/">RnBeads</a> for data import.</p>
 <pre class="r"><code class="hljs">suppressPackageStartupMessages(<span class="hljs-keyword">library</span>(RnBeads))
 rnb.options(
@@ -330,7 +330,7 @@ options(fftempdir=temp.dir)
 rnb.set &lt;- rnb.run.analysis(dir.reports = dir.report, sample.sheet = sample.anno, data.dir = idat.folder)</code></pre>
 </div>
 <div id="preprocessing-and-filtering" class="section level1">
-<h2>Preprocessing and Filtering</h2>
+<h1>Preprocessing and Filtering</h1>
 <p>The preprocessing and filtering is also performed in line with the general <a href="protocol.html">protocol</a> using <a href="https://github.com/CompEpigen/DecompPipeline"><em>DecompPipeline</em></a>.</p>
 <pre class="r"><code class="hljs">suppressPackageStartupMessages(<span class="hljs-keyword">library</span>(DecompPipeline))
 data.prep &lt;- prepare_data(RNB_SET = rnb.set,
@@ -352,14 +352,14 @@ data.prep &lt;- prepare_data(RNB_SET = rnb.set,
                           ica.setting=c(<span class="hljs-string">"alpha.fact"</span>=<span class="hljs-number">1e-5</span>))</code></pre>
 </div>
 <div id="feature-selection" class="section level1">
-<h2>Feature selection</h2>
+<h1>Feature selection</h1>
 <p>We select the 5,000 most variable CpGs across the samples for downstream analysis.</p>
 <pre class="r"><code class="hljs">cg_subset &lt;- prepare_CG_subsets(rnb.set=data.prep$rnb.set.filtered,
                                 MARKER_SELECTION = <span class="hljs-string">"var"</span>,
                                 N_MARKERS = <span class="hljs-number">5000</span>)</code></pre>
 </div>
 <div id="deconvolution-using-reffreecellmix" class="section level1">
-<h2>Deconvolution using RefFreeCellMix</h2>
+<h1>Deconvolution using RefFreeCellMix</h1>
 <p>We use the <em>RefFreeCellMix</em> function from the <a href="https://cran.r-project.org/web/packages/RefFreeEWAS/index.html">RefFreeEWAS</a> package for deconvolution analysis. In contrast to <em>MeDeCom</em>, <em>RefFreeCellMix</em>
  does not use a regularization for the entries of the matrix to be at 
 the extreme values 0 or 1. Thus, we just specify the number of 
@@ -374,7 +374,7 @@ selected features.</p>
 )</code></pre>
 </div>
 <div id="downstream-analysis" class="section level1">
-<h2>Downstream analysis</h2>
+<h1>Downstream analysis</h1>
 <p>The resulting object is an object of type <em>MeDeComSet</em>, since the output from <em>RefFreeCellMix</em> has internally been transformed to the <em>MeDeCom</em> infrastructure. This enables loading the data set directly into the visualization tool <a href="https://github.com/CompEpigen/FactorViz"><em>FactorViz</em></a></p>
 <pre class="r"><code class="hljs">suppressPackageStartupMessages(<span class="hljs-keyword">library</span>(FactorViz))
 startFactorViz(file.path(getwd(),<span class="hljs-string">"TCGA_RefFree"</span>,<span class="hljs-string">"FactorViz_outputs"</span>))</code></pre>

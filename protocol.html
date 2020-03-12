@@ -281,9 +281,9 @@ summary {
 				<a class="dropdown-toggle" data-toggle="dropdown" href="#">Protocol
 				<span class="caret"></span></a>
 				<ul class="dropdown-menu">
-					<li><a href="protocol.html">MeDeCom Protocol</a></li>
-					<li><a href="protocol_RefFreeEWAS.html">RefFreeEWAS Protocol</a></li>
-					<li><a href="protocol_RRBS.html">RRBS Protocol</a></li>
+					<li><a href="protocol.html">Protocol for 450k data (MeDeCom)</a></li>
+					<li><a href="protocol_RefFreeEWAS.html">Protocol for 450k data (RefFreeEWAS)</a></li>
+					<li><a href="protocol_RRBS.html">Protocol for RRBS data (MeDeCom)</a></li>
 				</ul>
 			</li>
 			</li>
@@ -315,23 +315,56 @@ Non-negative matrix factorization is employed for this task, and we will
 <div id="installation-duration-up-to-2-h" class="section level1">
 <h1>Installation (duration up to 2 h)</h1>
 <ol style="list-style-type: decimal">
-<li><p>If R is not yet installed, follow the instructions at <a href="https://cran.r-project.org/" class="uri">https://cran.r-project.org/</a>.
+<li>If R is not yet installed, follow the instructions at <a href="https://cran.r-project.org/" class="uri">https://cran.r-project.org/</a>.
  Create a working directory on a filesystem partition with sufficient 
 storage capacity. Throughout the analysis, ~20-30 Gb of free storage 
 will be required. Be sure that all the files are downloaded into this 
-working directory and that the code is executed within the directory.</p></li>
-<li><p>To execute the protocol described here, several R-packages (<em>RnBeads</em>, <em>DecompPipeline</em>, <em>MeDeCom</em>, and <em>FactorViz</em>)
+working directory and that the code is executed within the directory.</li>
+</ol>
+<p>2a. <strong>Linux</strong> To execute the protocol described here, several R-packages (<em>RnBeads</em>, <em>DecompPipeline</em>, <em>MeDeCom</em>, and <em>FactorViz</em>)
  are required. First, you should have a recent R version installed and 
 all your packages updated. The installation of the software is appliable
  for most <em>Linux distributions</em> directly through R, while for <em>MacOS</em> the binary release of <em>MeDeCom</em> <a href="https://github.com/lutsik/MeDeCom/releases/download/v0.3.0/MeDeCom_0.3.0.tgz" class="uri">https://github.com/lutsik/MeDeCom/releases/download/v0.3.0/MeDeCom_0.3.0.tgz</a> should be used. The protocol is also available as a Docker container <a href="https://hub.docker.com/r/mscherer/medecom" class="uri">https://hub.docker.com/r/mscherer/medecom</a>,
- which is the only option for Windows operating systems. For the 
-remainder of this protocol, we assume a common Linux distribution as the
- operating system.</p></li>
-</ol>
+ which is currently the only option for Windows operating systems. For 
+the remainder of this protocol, we assume a common Linux distribution as
+ the operating system.</p>
 <pre class="r"><code class="hljs">install.packages(c(<span class="hljs-string">"devtools"</span>,<span class="hljs-string">"BiocManager"</span>))
 BiocManager::install(c(<span class="hljs-string">"RnBeads"</span>,<span class="hljs-string">"RnBeads.gh19"</span>,<span class="hljs-string">"RnBeads.mm10"</span>,<span class="hljs-string">"RnBeads.hg38"</span>),dependencies=<span class="hljs-literal">TRUE</span>)
 devtools::install_github(c(<span class="hljs-string">"lutsik/MeDeCom"</span>,<span class="hljs-string">"CompEpigen/DecompPipeline"</span>,<span class="hljs-string">"CompEpigen/FactorViz"</span>))
 <span class="hljs-keyword">library</span>(DecompPipeline)</code></pre>
+<p>2b. <strong>macOS</strong> In a first step, you will have to retrieve the binary version of <em>MeDeCom</em> from GitHub. Afterwards, you can install the remaining packages similar to the <em>Linux</em> case.</p>
+<pre class="r"><code class="hljs">install.packages(c(<span class="hljs-string">"devtools"</span>,<span class="hljs-string">"BiocManager"</span>))
+BiocManager::install(c(<span class="hljs-string">"RnBeads"</span>,<span class="hljs-string">"RnBeads.gh19"</span>,<span class="hljs-string">"RnBeads.mm10"</span>,<span class="hljs-string">"RnBeads.hg38"</span>),dependencies=<span class="hljs-literal">TRUE</span>)
+install.packages(<span class="hljs-string">"https://github.com/lutsik/MeDeCom/releases/download/v1.0.0/MeDeCom_1.0.0.tgz"</span>,repos=<span class="hljs-literal">NULL</span>,type=<span class="hljs-string">"binary"</span>)
+devtools::install_github(c(<span class="hljs-string">"CompEpigen/DecompPipeline"</span>,<span class="hljs-string">"CompEpigen/FactorViz"</span>))
+<span class="hljs-keyword">library</span>(DecompPipeline)</code></pre>
+<p>2c. <strong>Windows</strong> A dedicated branch in the GitHub 
+repository handling installation on Windows machines is available and 
+can be installed similar to the <em>Linux</em> case.</p>
+<pre class="r"><code class="hljs">BiocManager::install(c(<span class="hljs-string">"RnBeads"</span>,
+        <span class="hljs-string">"RnBeads.hg19"</span>,
+        <span class="hljs-string">"RnBeads.mm10"</span>,
+        <span class="hljs-string">"RnBeads.hg38"</span>),
+   dependencies=<span class="hljs-literal">TRUE</span>)
+<span class="hljs-keyword">library</span>(devtools)
+devtools::install_github(<span class="hljs-string">"lutsik/MeDeCom"</span>,ref=<span class="hljs-string">"windows"</span>)
+devtools::install_github(
+    c(<span class="hljs-string">"CompEpigen/DecompPipeline"</span>,<span class="hljs-string">"CompEpigen/FactorViz"</span>)
+)
+<span class="hljs-keyword">library</span>(DecompPipeline)</code></pre>
+<p>2 d. <strong>Cross-platform using Docker</strong> If not yet available, install Docker on your machine. The <a href="https://docs.docker.com/">Docker website</a>
+ provides detailed installation instructions for all major operating 
+systems and computational environments, including Linux, Windows and 
+MacOS. Specifically, on Windows follow <a href="https://docs.docker.com/docker-for-windows/install/">these</a>
+ instructions. After successful installation, start Docker desktop, be 
+sure that a X Server is running, open a new PowerShell window and type:</p>
+<pre class="bash"><code class="hljs"><span class="hljs-comment"># Windows</span>
+docker run  -e DISPLAY=&lt;YOUR_IP&gt;:0.0 -it mscherer/medecom
+
+<span class="hljs-comment"># Linux</span>
+xhost +<span class="hljs-string">"local:docker@"</span>
+docker run --env DISPLAY=<span class="hljs-variable">$DISPLAY</span> --privileged --volume <span class="hljs-variable">$XAUTH</span>:/root/.Xauthority --network=host --volume /tmp/.X11-unix:/tmp/.X11-unix --rm --rm -it mscherer/medecom</code></pre>
+<p>An interactive R-session will start which can be used to run this protocol.</p>
 </div>
 <div id="protocol" class="section level1">
 <h1>Protocol</h1>
@@ -339,12 +372,12 @@ devtools::install_github(c(<span class="hljs-string">"lutsik/MeDeCom"</span>,<sp
 <h2>Data Retrival</h2>
 <div id="obtaining-data-from-a-public-resource-duration-5-h" class="section level3">
 <h3>Obtaining data from a public resource (duration ~5 h)</h3>
-<ol start="3" style="list-style-type: decimal">
+<ol style="list-style-type: decimal" start="3">
 <li>Use the Genomic Data Commons (GDC) data download tool (<a href="https://gdc.cancer.gov/access-data/gdc-data-transfer-tool" class="uri">https://gdc.cancer.gov/access-data/gdc-data-transfer-tool</a>) to download the IDAT files with the TCGA-LUAD manifest file (<a href="http://epigenomics.dkfz.de/DecompProtocol/data/gdc_manifest.2019-01-23.txt" class="uri">http://epigenomics.dkfz.de/DecompProtocol/data/gdc_manifest.2019-01-23.txt</a>) and its associated metadata by running the download tool in a terminal session initiated in the working directory:</li>
 </ol>
 <pre class="bash"><code class="hljs">gdc-client download –m gdc_manifest.2019-01-23.txt</code></pre>
 <p>Store the resulting files in a new directory <em>idat</em>.</p>
-<ol start="4" style="list-style-type: decimal">
+<ol style="list-style-type: decimal" start="4">
 <li>Retrieve the clinical metadata from <a href="https://portal.gdc.cancer.gov/projects/TCGA-LUAD" class="uri">https://portal.gdc.cancer.gov/projects/TCGA-LUAD</a> by clicking on the “Clinical” button and unpacking the downloaded <em>.tar.gz</em>
  file into a new subdirectory annotation within your working directory. 
 The remaining parsing is performed through an R session initiated in the
@@ -365,7 +398,7 @@ anno.frame$Sentrix_Position &lt;- unlist(lapply(lapply(as.character(anno.frame$A
 anno.frame$healthy_cancer &lt;- ifelse(grepl(<span class="hljs-string">"11A"</span>,anno.frame$Comment..TCGA.Barcode.),<span class="hljs-string">"healthy"</span>,<span class="hljs-string">"cancer"</span>)
 write.table(anno.frame,<span class="hljs-string">"annotation/sample_annotation.tsv"</span>,quote=<span class="hljs-literal">F</span>,row.names = <span class="hljs-literal">F</span>,sep=<span class="hljs-string">"\t"</span>)
 anno.frame &lt;- read.table(<span class="hljs-string">"annotation/sample_annotation.tsv"</span>,quote=<span class="hljs-literal">F</span>,row.names = <span class="hljs-literal">F</span>,sep=<span class="hljs-string">"\t"</span>)</code></pre>
-<ol start="5" style="list-style-type: decimal">
+<ol style="list-style-type: decimal" start="5">
 <li>Copy the IDAT files into a single directory idat for downstream analysis.</li>
 </ol>
 <pre class="r"><code class="hljs"><span class="hljs-comment">#' write idat files to parent directory</span>
@@ -380,7 +413,7 @@ lapply(idat.files,<span class="hljs-keyword">function</span>(x){
 <h2>Data Processing</h2>
 <div id="data-import-2-h" class="section level3">
 <h3>Data import (~2 h)</h3>
-<ol start="6" style="list-style-type: decimal">
+<ol style="list-style-type: decimal" start="6">
 <li><em>RnBeads</em> converts the files into a data object and performs basic quality control. Analysis options have to be specified for <em>RnBeads</em>,
  either through an XML file, or through the command line. Deactivate the
  preprocessing, exploratory, covariate inference, export and 
@@ -403,7 +436,7 @@ rnb.options(
   export.to.trackhub=<span class="hljs-literal">NULL</span>,
   export.to.csv=<span class="hljs-literal">F</span>
 )</code></pre>
-<ol start="7" style="list-style-type: decimal">
+<ol style="list-style-type: decimal" start="7">
 <li>Specify the input to <em>RnBeads</em>: the sample annotation sheet 
 created at the data retrieval step, the directory in which the IDAT 
 files are stored and a directory to which the HTML report is to be 
@@ -416,10 +449,10 @@ dir.report &lt;- paste0(<span class="hljs-string">"report"</span>,Sys.Date(),<sp
 temp.dir &lt;- <span class="hljs-string">"/tmp"</span>
 options(fftempdir=temp.dir)
 rnb.set &lt;- rnb.run.analysis(dir.reports = dir.report, sample.sheet = sample.anno, data.dir = idat.folder)</code></pre>
-<p><strong>PAUSE POINT</strong> We provide an example report containing the processed RnBSet object for further analysis. It can be obtained from <a href="http://epigenomics.dkfz.de/downloads/DecompProtocol/RnBeads_Report_TCGA_LUAD/index.html" class="uri">http://epigenomics.dkfz.de/downloads/DecompProtocol/RnBeads_Report_TCGA_LUAD/index.html</a> or directly loaded via:</p>
+<p><strong>PAUSE POINT</strong> We provide an example report containing the processed RnBSet object for further analysis. It can be obtained from <a href="http://epigenomics.dkfz.de/downloads/DecompProtocol/RnBeads_Report_TCGA_LUAD/index.html">http://epigenomics.dkfz.de/downloads/DecompProtocol/RnBeads_Report_TCGA_LUAD/index.html</a> or directly loaded via:</p>
 <pre class="r"><code class="hljs">download.file(<span class="hljs-string">"http://epigenomics.dkfz.de/downloads/DecompProtocol/rnbSet_unnormalized.zip"</span>, destfile=paste0(tempdir(),<span class="hljs-string">"/RnBSet"</span>))
 rnb.set &lt;- load.rnb.set(paste0(tempdir(),<span class="hljs-string">"/RnBSet"</span>))</code></pre>
-<ol start="8" style="list-style-type: decimal">
+<ol style="list-style-type: decimal" start="8">
 <li><em>RnBeads</em> creates an interactive HTML report, specifying the 
 steps performed and the associated results. Data was of good quality 
 such that it can be used for further analysis.</li>
@@ -428,7 +461,7 @@ such that it can be used for further analysis.</li>
 </div>
 <div id="preprocessing-and-filtering-22-h" class="section level3">
 <h3>Preprocessing and Filtering (22 h)</h3>
-<ol start="9" style="list-style-type: decimal">
+<ol style="list-style-type: decimal" start="9">
 <li>For further data preparation and analysis steps use the <em>DecompPipeline</em>
  package. Processing options are provided through individual function 
 parameters. Follow a stringent filtering strategy: (i) Filter CpGs 
@@ -449,7 +482,7 @@ rem.sites[row.names(annotation(rnb.set))%<span class="hljs-keyword">in</span>%as
 <span class="hljs-literal">FALSE</span>
 rnb.set &lt;- remove.sites(rnb.set,rem.sites)
 data.prep &lt;- list(rnb.set.filtered=rnb.set)</code></pre>
-<ol start="10" style="list-style-type: decimal">
+<ol style="list-style-type: decimal" start="10">
 <li>Adjustment for potential confounding factors is crucial in 
 epigenomic studies and the influences of, for instance, donor sex, age, 
 and genotype on the DNA methylation pattern are well-studied 28,29 . Use
@@ -483,7 +516,7 @@ data.prep &lt;- list(rnb.set.filtered=rnb.set)</code></pre>
 </div>
 <div id="selection-of-cpg-subsets-1-min" class="section level3">
 <h3>Selection of CpG subsets (1 min)</h3>
-<ol start="11" style="list-style-type: decimal">
+<ol style="list-style-type: decimal" start="11">
 <li>Select a subset of sites to be used for deconvolution. DecompPipeline provides different options (see documentation of <em>prepare_CG_subsets</em>) through the <em>prepare_CG_subsets</em> function. Select the 5,000 most highly variable CpGs across the samples.</li>
 </ol>
 <pre class="r"><code class="hljs">cg_subset &lt;- prepare_CG_subsets(rnb.set=data.prep$rnb.set.filtered,
@@ -496,7 +529,7 @@ names(cg_subset)</code></pre>
 <h2>Methylome Deconvolution</h2>
 <div id="performing-deconvolution-54-h" class="section level3">
 <h3>Performing Deconvolution (54 h)</h3>
-<ol start="12" style="list-style-type: decimal">
+<ol style="list-style-type: decimal" start="12">
 <li>Perform the deconvolution experiment. Use MeDeCom with a grid of 
 values for the number of components (K) ranging from 2 to 15, which 
 covers homogeneous to heterogeneous samples. Also, specify a grid for 
@@ -521,12 +554,12 @@ untar(paste0(tempdir(),<span class="hljs-string">"/FactorViz_outputs.tar.gz"</sp
 </div>
 <div id="downstream-analysis-3-h" class="section level2">
 <h2>Downstream analysis (3 h)</h2>
-<ol start="13" style="list-style-type: decimal">
+<ol style="list-style-type: decimal" start="13">
 <li>Start the <em>FactorViz</em> application to visualize and interactively explore the deconvolution results.</li>
 </ol>
 <pre class="r"><code class="hljs">suppressPackageStartupMessages(<span class="hljs-keyword">library</span>(FactorViz))
 startFactorViz(file.path(getwd(),<span class="hljs-string">"TCGA_LUAD"</span>,<span class="hljs-string">"FactorViz_outputs"</span>))</code></pre>
-<ol start="14" style="list-style-type: decimal">
+<ol style="list-style-type: decimal" start="14">
 <li><p>Determine the number of LMCs (K) and the regularization parameter
  (λ) based on the cross-validation error. First, go to panel “K 
 selection” to plot cross-validation error for the range of Ks specified 
@@ -535,59 +568,24 @@ earlier. We recommend selecting K values as a trade-off between too high
 and insufficient degrees of freedom (lower K values). This typically 
 corresponds to the saddle point where cross-validation error starts to 
 level out.</p></li>
-<div class="row">
-<div class="col-md-2"></div>
-<div class="col-md-8">
-    <img class="img-responsive img-rounded" src="images/select_K.png" alt="">
-</div>
-<div class="col-md-2"></div>
-</div>
 <li><p>For a fixed K, select a value for the regularization parameter 
 (λ) by proceeding to panel “Lambda selection”. An optimal value for λ 
 will often correspond to a local minimum of the cross-validation error. 
 On the other hand, noticeable changes in other statistics, such as 
 objective value or root mean squared error (RMSE), can point at a 
 different λ value.</p></li>
-<div class="row">
-<div class="col-md-2"></div>
-<div class="col-md-8">
-    <img class="img-responsive img-rounded" src="images/select_lambda.png" alt="">
-</div>
-<div class="col-md-2"></div>
-</div>
 <li><p>In the “Proportions” panel of FactorViz, visualize LMC 
 proportions using heatmaps. Proportion heatmaps can be visually 
 annotated with available qualitative and quantitative traits (see 
 dropdown “Color samples by”). Further visualization options include 
 stacked barplot and lineplots.</p></li>
-<div class="row">
-<div class="col-md-2"></div>
-<div class="col-md-8">
-    <img class="img-responsive img-rounded" src="images/proportion_clustering.png" alt="">
-</div>
-<div class="col-md-2"></div>
-</div>
 <li><p>In the “Meta-analysis” panel, associate LMC proportions with 
 quantitative and qualitative traits using correlation- and t-tests. 
-Further sample annotations, such as mutational load (<a href="https://www.cbioportal.org/study/clinicalData?id=luad_tcga_pan_can_atlas_2018" class="uri">https://www.cbioportal.org/study/clinicalData?id=luad_tcga_pan_can_atlas_2018</a>) and tumor purity scores can be obtained from public repositories and related publications (<a href="https://static-content.springer.com/esm/art%3A10.1038%2Fncomms3612/MediaObjects/41467_2013_BFncomms3612_MOESM489_ESM.xlsx">https://static-content.springer.com/esm/art%3A10.1038%2Fncomms3612/MediaObjects/41467_2013_BFncomms3612_MOESM489_ESM.xlsx</a>). In addition, scripts to conduct such analysis are available on the Supplementary Website (<a href="http://epigenomics.dkfz.de/DecompProtocol/" class="uri">http://epigenomics.dkfz.de/DecompProtocol/</a>).</p></li>
-<div class="row">
-<div class="col-md-2"></div>
-<div class="col-md-8">
-    <img class="img-responsive img-rounded" src="images/trait_association.png" alt="">
-</div>
-<div class="col-md-2"></div>
-</div>
+Further sample annotations, such as mutational load (<a href="https://www.cbioportal.org/study/clinicalData?id=luad_tcga_pan_can_atlas_2018" class="uri">https://www.cbioportal.org/study/clinicalData?id=luad_tcga_pan_can_atlas_2018</a>) and tumor purity scores can be obtained from public repositories and related publications (<a href="https://static-content.springer.com/esm/art%3A10.1038%2Fncomms3612/MediaObjects/41467_2013_BFncomms3612_MOESM489_ESM.xlsx" class="uri">https://static-content.springer.com/esm/art%3A10.1038%2Fncomms3612/MediaObjects/41467_2013_BFncomms3612_MOESM489_ESM.xlsx</a>). In addition, scripts to conduct such analysis are available on the Supplementary Website (<a href="http://epigenomics.dkfz.de/DecompProtocol/" class="uri">http://epigenomics.dkfz.de/DecompProtocol/</a>).</p></li>
 <li><p>Explore the LMCs in the panel “LMCs”. Several visualization 
 options are available such as Multidimensional Scaling and histograms. 
 Reference profiles can be used for joint visualization in case those are
  available.</p></li>
-<div class="row">
-<div class="col-md-2"></div>
-<div class="col-md-8">
-    <img class="img-responsive img-rounded" src="images/visualize_LMCs.png" alt="">
-</div>
-<div class="col-md-2"></div>
-</div>
 <li><p>Determine DNA methylation sites that are specifically hypo- and 
 hypermethylated in an LMC by comparing the methylation values in the LMC
  matrix for each LMC to the median of the remaining LMCs in the 
@@ -599,19 +597,14 @@ Enrichments” in dropdown ”Output type”). The differential sites can be
 exported for further analysis, and the resulting plots can be stored by 
 clicking on the “PDF” button.</p></li>
 </ol>
-<div class="row">
-<div class="col-md-2"></div>
-<div class="col-md-8">
-    <img class="img-responsive img-rounded" src="images/lola_enrichment.png" alt="">
-</div>
-<div class="col-md-2"></div>
-</div>
 <p><strong>PAUSE POINT</strong> Additional built-in options for visualization of LMCs and proportions are available via the <em>MeDeCom</em> functions <code>plotLMCs</code> and <code>plotProportions</code> in R. Finally, the LMC and proportions matrix can be extracted from the MeDeComSet object, and the genomic annotation of CpGs (<code>ann.C</code>) can be obtained from the <em>FactorViz</em> output for a custom downstream analysis:</p>
 <pre class="r"><code class="hljs">LMCs &lt;- getLMCs(medecom.set, K=<span class="hljs-number">7</span>, lambda=<span class="hljs-number">0.001</span>)
 LMC.proportions &lt;- getProportions(medecom.set, K=<span class="hljs-number">7</span>, lambda=<span class="hljs-number">0.001</span>)
 load(<span class="hljs-string">"FactorViz_outputs/ann_C.RData"</span>)
 head(ann.C)</code></pre>
 </div>
+</div>
+
 </div>
 <footer class="py-5 bg-inverse">
         <div class="container">           <p class="m-0 text-center text-white">Copyright &copy; <a href="mailto:mscherer@mpi-inf.mpg.de">Support</a> 2019 </p>
