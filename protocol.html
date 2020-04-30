@@ -485,12 +485,12 @@ all your packages updated. The installation of the software is appliable
 the remainder of this protocol, we assume a common Linux distribution as
  the operating system.</p>
 <pre class="r"><code class="hljs">install.packages(c(<span class="hljs-string">"devtools"</span>,<span class="hljs-string">"BiocManager"</span>))
-BiocManager::install(c(<span class="hljs-string">"RnBeads"</span>,<span class="hljs-string">"RnBeads.gh19"</span>,<span class="hljs-string">"RnBeads.mm10"</span>,<span class="hljs-string">"RnBeads.hg38"</span>),dependencies=<span class="hljs-literal">TRUE</span>)
+BiocManager::install(c(<span class="hljs-string">"RnBeads"</span>,<span class="hljs-string">"RnBeads.hg19"</span>,<span class="hljs-string">"RnBeads.mm10"</span>,<span class="hljs-string">"RnBeads.hg38"</span>),dependencies=<span class="hljs-literal">TRUE</span>)
 devtools::install_github(c(<span class="hljs-string">"lutsik/MeDeCom"</span>,<span class="hljs-string">"CompEpigen/DecompPipeline"</span>,<span class="hljs-string">"CompEpigen/FactorViz"</span>))
 <span class="hljs-keyword">library</span>(DecompPipeline)</code></pre>
 <p>2b. <strong>macOS</strong> In a first step, you will have to retrieve the binary version of <em>MeDeCom</em> from GitHub. Afterwards, you can install the remaining packages similar to the <em>Linux</em> case.</p>
 <pre class="r"><code class="hljs">install.packages(c(<span class="hljs-string">"devtools"</span>,<span class="hljs-string">"BiocManager"</span>))
-BiocManager::install(c(<span class="hljs-string">"RnBeads"</span>,<span class="hljs-string">"RnBeads.gh19"</span>,<span class="hljs-string">"RnBeads.mm10"</span>,<span class="hljs-string">"RnBeads.hg38"</span>),dependencies=<span class="hljs-literal">TRUE</span>)
+BiocManager::install(c(<span class="hljs-string">"RnBeads"</span>,<span class="hljs-string">"RnBeads.hg19"</span>,<span class="hljs-string">"RnBeads.mm10"</span>,<span class="hljs-string">"RnBeads.hg38"</span>),dependencies=<span class="hljs-literal">TRUE</span>)
 install.packages(<span class="hljs-string">"https://github.com/lutsik/MeDeCom/releases/download/v1.0.0/MeDeCom_1.0.0.tgz"</span>,repos=<span class="hljs-literal">NULL</span>,type=<span class="hljs-string">"binary"</span>)
 devtools::install_github(c(<span class="hljs-string">"CompEpigen/DecompPipeline"</span>,<span class="hljs-string">"CompEpigen/FactorViz"</span>))
 <span class="hljs-keyword">library</span>(DecompPipeline)</code></pre>
