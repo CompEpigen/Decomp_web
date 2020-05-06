@@ -2,7 +2,7 @@ library(MeDeCom)
 load("TCGA_LUAD/FactorViz_outputs/medecom_set.RData")
 load("TCGA_LUAD/FactorViz_outputs/ann_S.RData")
 K <- 7
-lambda <- 0
+lambda <- 0.001
 cg_subs <- 1
 library(data.table)
 muts <- fread("annotation/luad_tcga_pan_can_atlas_2018_clinical_data.tsv")
@@ -49,11 +49,14 @@ cors <- apply(props,1,function(x){
   sapply(sel.traits,function(trait){
     trait <- ann.S[,trait]
     na.trait <- is.na(trait)
-    #cor(x[!na.trait],as.numeric(trait[!na.trait]))
-    cor.test(x[!na.trait],as.numeric(trait[!na.trait]))$p.value
+    cor(x[!na.trait],as.numeric(trait[!na.trait]))
+    §cor.test(x[!na.trait],as.numeric(trait[!na.trait]))$p.value
   })
 })
-corrplot(t(cors),"ellipse",addCoef.col = "black")
+corrplot(t(cors),"ellipse",addCoef.col = "black"col=rev(colorRampPalette(c("#67001F", 
+				"#B2182B", "#D6604D", "#F4A582",
+                                "#FDDBC7", "#FFFFFF", "#D1E5F0", "#92C5DE",
+                                "#4393C3", "#2166AC", "#053061"))(200)))
 
 eth <- ann.S$ethnicity
 eth[eth == "not reported"] <- NA
@@ -77,10 +80,10 @@ madiff <- apply(props,1,function(x){
     na.trait <- is.na(trait)
     trait <- trait[!na.trait]
     x <- x[!na.trait]
-#    md <- mean(x[as.character(trait)==levels(trait)[1]],na.rm=T)-mean(x[as.character(trait)==levels(trait)[2]],na.rm=T)
-#	names(md) <- paste0(levels(trait)[1],"vs",levels(trait)[2])
-#	md
-   t.test(x[as.character(trait)==levels(trait)[1]],na.rm=T,x[as.character(trait)==levels(trait)[2]])$p.value
+    md <- mean(x[as.character(trait)==levels(trait)[1]],na.rm=T)-mean(x[as.character(trait)==levels(trait)[2]],na.rm=T)
+	names(md) <- paste0(levels(trait)[1],"vs",levels(trait)[2])
+	md
+§   t.test(x[as.character(trait)==levels(trait)[1]],na.rm=T,x[as.character(trait)==levels(trait)[2]])$p.value
   })
 })
 to.plot <- data.frame(t(madiff),LMC=colnames(madiff))
