@@ -50,7 +50,7 @@ cors <- apply(props,1,function(x){
     trait <- ann.S[,trait]
     na.trait <- is.na(trait)
     cor(x[!na.trait],as.numeric(trait[!na.trait]))
-    §cor.test(x[!na.trait],as.numeric(trait[!na.trait]))$p.value
+#   cor.test(x[!na.trait],as.numeric(trait[!na.trait]))$p.value
   })
 })
 corrplot(t(cors),"ellipse",addCoef.col = "black",col=rev(colorRampPalette(c("#67001F",
@@ -83,7 +83,7 @@ madiff <- apply(props,1,function(x){
     md <- mean(x[as.character(trait)==levels(trait)[1]],na.rm=T)-mean(x[as.character(trait)==levels(trait)[2]],na.rm=T)
 	names(md) <- paste0(levels(trait)[1],"vs",levels(trait)[2])
 	md
-§   t.test(x[as.character(trait)==levels(trait)[1]],na.rm=T,x[as.character(trait)==levels(trait)[2]])$p.value
+#   t.test(x[as.character(trait)==levels(trait)[1]],na.rm=T,x[as.character(trait)==levels(trait)[2]])$p.value
   })
 })
 to.plot <- data.frame(t(madiff),LMC=colnames(madiff))
