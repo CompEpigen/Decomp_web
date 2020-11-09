@@ -24,7 +24,7 @@ trait <- "X12p.Status"#"X1p.Status" "X16p.Status" "X16q.Status"
 trait <- ann.S[,trait]
 props <- getProportions(medecom.set,K=K,lambda=lambda,cg_subset=cg_subs)
 to.plot <- data.frame(t(props),Trait=trait)
-to.plot <- melt(to.plot,id="Trait")
+to.plot <- reshape2::melt(to.plot,id="Trait")
 colnames(to.plot)[2:3] <- c("LMC","Contribution")
 plot <- ggplot(to.plot,aes(x=Trait,y=Contribution))+geom_boxplot()+theme_bw()+theme(panel.grid=element_blank())+
   facet_grid(LMC~.)
@@ -33,7 +33,7 @@ trait <- "Radiation.Therapy"
 trait <- ann.S[,trait]
 props <- getProportions(medecom.set,K=K,lambda=lambda,cg_subset=cg_subs)
 to.plot <- data.frame(t(props),Trait=trait)
-to.plot <- melt(to.plot,id="Trait")
+to.plot <- reshape2::melt(to.plot,id="Trait")
 colnames(to.plot)[2:3] <- c("LMC","Contribution")
 plot <- ggplot(to.plot,aes(x=Trait,y=Contribution))+geom_boxplot()+theme_bw()+theme(panel.grid=element_blank())+
   facet_grid(LMC~.)

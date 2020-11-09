@@ -87,7 +87,7 @@ madiff <- apply(props,1,function(x){
   })
 })
 to.plot <- data.frame(t(madiff),LMC=colnames(madiff))
-to.plot <- melt(to.plot,id="LMC")
+to.plot <- reshape2::melt(to.plot,id="LMC")
 colnames(to.plot)[2:3] <- c("Trait","ADiffM")
 mini <- min(madiff)
 maxi <- max(madiff)
